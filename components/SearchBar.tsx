@@ -31,29 +31,29 @@ export default function SearchBar({ mobile = false }) {
 
   const input = useRef(null);
 
-  const fetchData = async () => {
-    const path = encodeURIComponent(searchQuerey.trim());
-
-    if (path.length === 0) return;
-
-    const res = await fetch(`${api}/movies/search?q=${path}`, {
-      headers: {
-        "Access-Control-Allow-Origin": api,
-      },
-    });
-    // const res = await fetch(`http://localhost:3000/api/movies/search`, {
-    //   method: "POST",
-    //   body: JSON.stringify({ querey: searchQuerey.trim() }),
-    // });
-    const json = await res.json();
-
-    setResults(json);
-
-    // show results (if not empty)
-    setHideResults(json.length === 0);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      const path = encodeURIComponent(searchQuerey.trim());
+
+      if (path.length === 0) return;
+
+      const res = await fetch(`${api}/movies/search?q=${path}`, {
+        headers: {
+          "Access-Control-Allow-Origin": api,
+        },
+      });
+      // const res = await fetch(`http://localhost:3000/api/movies/search`, {
+      //   method: "POST",
+      //   body: JSON.stringify({ querey: searchQuerey.trim() }),
+      // });
+      const json = await res.json();
+
+      setResults(json);
+
+      // show results (if not empty)
+      setHideResults(json.length === 0);
+    };
+
     if (searchQuerey.length) fetchData().catch(console.error);
     else {
       setResults([]);

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 import NavBar from "../../components/NavBar";
@@ -78,7 +79,7 @@ export default function MoviePage({
             >
               {movie.name}
             </h1>
-            <img
+            <Image
               id="moviePoster"
               alt={movie.name}
               src={movie.poster}
@@ -101,7 +102,7 @@ export default function MoviePage({
   } else {
     return (
       <ThemeContainer>
-        <h1>404 - Movie Doesn't Exist</h1>
+        <h1>404 - Movie Doesn&apos;t Exist</h1>
       </ThemeContainer>
     );
   }
