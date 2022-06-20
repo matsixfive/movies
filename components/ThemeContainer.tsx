@@ -9,7 +9,7 @@ export default function ThemeContainer({
   notFullHeight = false,
 }: {
   children: React.ReactNode;
-  notFullHeight: boolean;
+  notFullHeight?: boolean;
 }) {
   const theme = useContext(ThemeContext);
   return (
