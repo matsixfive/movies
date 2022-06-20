@@ -3,6 +3,8 @@
 #vscode
 /.vscode/
 
+.env
+
 # dependencies
 /node_modules
 /.pnp

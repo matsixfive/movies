@@ -1,7 +1,13 @@
 import { createContext, useMemo, useState, useEffect } from "react";
 import { setCookies, getCookie } from "cookies-next";
 
-const ThemeContext = createContext();
+const ThemeContext: React.Context<{
+  darkMode: boolean;
+  toggleTheme: (theme?: boolean) => void;
+}> = createContext({
+  darkMode: true,
+  toggleTheme: () => {},
+});
 
 export default ThemeContext;
 
@@ -10,13 +16,14 @@ export default ThemeContext;
  */
 export function ThemeWrapper({ children }) {
   let darkCookie = getCookie("darkMode");
-  if (typeof darkCookie === "undefined") darkCookie = true;
+  let darkVal = true;
+  if (typeof darkCookie === "boolean") darkVal = darkCookie;
 
   const [darkMode, setDarkMode] = useState(true);
 
   // Sets darkMode state to cookie value on first render
   useEffect(() => {
-    setDarkMode(darkCookie);
+    setDarkMode(darkVal);
   }, []);
 
   // When darkMode is changed, re-set cookie
@@ -27,9 +34,12 @@ export function ThemeWrapper({ children }) {
   /**
    * Toggle between dark and light mode
    */
-  const toggleTheme = (theme) => {
+  const toggleTheme = (theme?: boolean) => {
     setDarkMode(theme || !darkMode);
-    console.log("Dark theme " + (darkMode ? "%cdisabled" : "%cenabled"), "color:" + (darkMode ? "yellow" : "lightblue"));
+    console.log(
+      "Dark theme " + (darkMode ? "%cdisabled" : "%cenabled"),
+      "color:" + (darkMode ? "yellow" : "lightblue")
+    );
   };
 
   const value = useMemo(

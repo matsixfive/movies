@@ -5,16 +5,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
 
 @layer utilities {
-  @variants responsive {
-    // Hide scrollbar for IE, Edge and Firefox
-    .no-scrollbar {
-      -ms-overflow-style: none; // IE and Edge
-      scrollbar-width: none; // Firefox
-      // Hide scrollbar for Chrome, Safari and Opera
-      &::-webkit-scrollbar {
-        display: none;
-      }
+  .no-scrollbar {
+    -ms-overflow-style: none; // IE, Edge
+    scrollbar-width: none; // Firefox
+    &::-webkit-scrollbar {
+      display: none; // Chrome, Safari, Opera
     }
+  }
+  .border-t-none {
+    border-top-style: none;
+  }
+  .border-b-none {
+    border-bottom-style: none;
+  }
+
+  .search-suggestion {
+    @apply text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-slate-100 hover:bg-slate-300 dark:hover:bg-slate-600 rounded-md;
+    &-active {
+      @apply text-black dark:text-slate-100 bg-slate-300 dark:bg-slate-600;
+    }
+  }
+  .search-suggestion-inside {
+    @apply w-full block cursor-pointer p-2 overflow-clip whitespace-nowrap text-ellipsis;
   }
 }
 
