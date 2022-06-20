@@ -1,10 +1,7 @@
-import { createContext, useMemo, useState, useEffect } from "react";
+import React, { createContext, useMemo, useState, useEffect } from "react";
 import { setCookies, getCookie } from "cookies-next";
 
-const ThemeContext: React.Context<{
-  darkMode: boolean;
-  toggleTheme: (theme?: boolean) => void;
-}> = createContext({
+const ThemeContext = createContext({
   darkMode: true,
   toggleTheme: () => {},
 });
@@ -14,7 +11,7 @@ export default ThemeContext;
 /**
  * Gives child elements access to ThemeContext context
  */
-export function ThemeWrapper({ children }) {
+export function ThemeWrapper({ children }: { children: React.ReactNode }) {
   let darkCookie = getCookie("darkMode");
   let darkVal = true;
   if (typeof darkCookie === "boolean") darkVal = darkCookie;
