@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import ThemeContext from "../context/darkMode";
 
 import MoonDark from "../icons/MoonDark";
@@ -9,7 +9,7 @@ export default function ToggleThemeButton({
 }: {
   className?: string;
 }) {
-  const [checked, setChecked] = useState(true);
+  // const [checked, setChecked] = useState(true);
   return (
     <ThemeContext.Consumer>
       {(theme: {
@@ -22,8 +22,9 @@ export default function ToggleThemeButton({
             onClick={() => {
               theme.toggleTheme();
             }}
-            className={"dark:text-slate-100 text-slate-900 ".concat(className)}
-          >
+            className={"dark:text-slate-100 text-slate-900 ".concat(
+              className || ""
+            )}>
             {theme.darkMode ? (
               <SunLight className="hover:text-yellow-300" />
             ) : (
