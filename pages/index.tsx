@@ -5,6 +5,7 @@ import MovieList from "../components/MovieList";
 import ThemeContainer from "../components/ThemeContainer";
 import NavBar from "../components/NavBar";
 
+//upcdate
 const api = process.env.API_URL || "http://localhost:3000/api";
 
 export async function getStaticProps() {
