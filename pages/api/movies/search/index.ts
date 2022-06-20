@@ -11,6 +11,7 @@ export default function handler(req: { url: string }, res) {
   // console.log(standardize(query));
 
   const queryStandard = standardize(query);
+  // if search querey is empty, return no content status with empty list
   if (queryStandard.length === 0) return res.status(204).json([]);
 
   const valid = sortedMoviesName
