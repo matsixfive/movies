@@ -1,10 +1,16 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import ThemeContext from "../context/darkMode";
 
 /**
  * Wraps elements in \<div\>  with className="dark" when dark mode is enabled
  */
-export default function ThemeContainer({ children, notFullHeight = false }) {
+export default function ThemeContainer({
+  children,
+  notFullHeight = false,
+}: {
+  children: React.ReactNode;
+  notFullHeight: boolean;
+}) {
   const theme = useContext(ThemeContext);
   return (
     <div
@@ -13,8 +19,7 @@ export default function ThemeContainer({ children, notFullHeight = false }) {
         " flex min-w-screen " +
         (theme.darkMode ? "dark" : "")
       }
-      id="themeContainer"
-    >
+      id="themeContainer">
       <div id="baseTheme" className="bg-slate-100 dark:bg-slate-900 w-full">
         {children}
       </div>
