@@ -22,6 +22,7 @@ export default function MovieGrid(props: {
                     >
                       <Image
                         id="cardImage"
+                        alt={movie.name}
                         className="rounded-2xl"
                         src={movie.poster}
                         width={200}

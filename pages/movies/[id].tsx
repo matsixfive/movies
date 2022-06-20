@@ -80,6 +80,7 @@ export default function MoviePage({
             </h1>
             <img
               id="moviePoster"
+              alt={movie.name}
               src={movie.poster}
               className="rounded-xl aspect-[2/3] w-96 mx-auto mt-0 block justify-center shadow-2xl"
             />
