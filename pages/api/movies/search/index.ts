@@ -3,8 +3,8 @@ import { standardize } from "../../../../lib/standardize";
 import url from "url";
 
 export default function handler(req: { url: string }, res) {
-  let url_parts = url.parse(req.url, true);
-  let query = url_parts.query.q;
+  let urlParts = url.parse(req.url, true);
+  let query = urlParts.query.q;
 
   if (typeof query !== "string") query = "";
 
@@ -15,19 +15,8 @@ export default function handler(req: { url: string }, res) {
 
   const valid = sortedMoviesName
     .filter(movie => {
-      const movieNameWords = standardize(movie.name);
-
-      const result = movieNameWords.filter((movieNameWord: string) => {
-
-        // ret
-        const result = queryStandard.map((quereyWord: string) =>
-          movieNameWord.includes(quereyWord)
-        );
-        console.log(result, movieNameWord);
-        return result;
-      });
-      console.log(result);
-      return result;
+      const movieName = standardize(movie.name);
+      return movieName.includes(queryStandard);
     })
     .map(({ id, name }) => {
       return {

@@ -4,12 +4,12 @@ import { standardize } from "../../../../lib/standardize";
 export default function handler(req, res) {
   const { query }: { query: string } = req.query;
 
-  const quereyStandard = standardize(query);
-  // if (quereyStandard.length === 0) return res.status(200).json([]);
+  const queryStandard = standardize(query);
+  // if (queryStandard.length === 0) return res.status(200).json([]);
 
   const valid = sortedMoviesName
     .filter((movie) => {
-      return standardize(movie.name).includes(quereyStandard.join(""));
+      return standardize(movie.name).includes(queryStandard);
     })
     .map(({ id, name }) => {
       return {
