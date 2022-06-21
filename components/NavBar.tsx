@@ -9,21 +9,15 @@ export default function NavBar() {
   const router = useRouter();
   const [path, setPath] = useState(router.asPath.split("/")[1]);
 
+  type PageInfo = {
+    active?: boolean;
+    title: string;
+    href: string;
+  }[];
+
   const [pages, setPages]: [
-    pages: {
-      active?: boolean;
-      title: string;
-      href: string;
-    }[],
-    setPages: Dispatch<
-      SetStateAction<
-        {
-          active?: boolean;
-          title: string;
-          href: string;
-        }[]
-      >
-    >
+    pages: PageInfo,
+    setPages: Dispatch<SetStateAction<PageInfo>>
   ] = useState([
     { title: "Home", href: "/" },
     { title: "Movies", href: "/movies" },
