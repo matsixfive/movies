@@ -41,7 +41,7 @@ export default function Home(props: {
 
         <NavBar />
         <main className="flex justify-center">
-          <div id="listsContainer" className="mx-auto w-auto max-w-full">
+          <div id="listsContainer" className="w-auto max-w-full mx-auto">
             <MovieList
               list={props.allMovies}
               listTitle={

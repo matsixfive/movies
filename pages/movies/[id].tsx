@@ -71,18 +71,19 @@ export default function MoviePage({
         <main className="dark:bg-slate-900 bg-slate-100">
           <div
             id="gridContainer"
-            className="grid sm:grid-cols-2 grid-cols-1 auto-cols-max pb-10"
-          >
+            className="grid sm:grid-cols-2 grid-cols-1 auto-cols-max pb-10">
             <h1
               id="movieTitle"
-              className="sm:col-span-2 col-span-1 text-center py-3 mb-1 text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-cyan-600 to-violet-600 dark:from-pink-500 dark:to-violet-500"
-            >
+              className="sm:col-span-2 col-span-1 text-center py-3 mb-1 text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-cyan-600 to-violet-600 dark:from-pink-500 dark:to-violet-500">
               {movie.name}
             </h1>
             <Image
               id="moviePoster"
               alt={movie.name}
               src={movie.poster}
+              width={100}
+              height={150}
+              layout="responsive"
               className="rounded-xl aspect-[2/3] w-96 mx-auto mt-0 block justify-center shadow-2xl"
             />
             {movie.description ? (

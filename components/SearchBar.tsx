@@ -12,6 +12,7 @@ import {
 import SearchIcon from "../icons/SearchIcon";
 
 const api: string = process.env.API_URL || "http://localhost:3000/api";
+console.log(api)
 
 export default function SearchBar({ mobile = false }) {
   const [searchQuerey, setSearchQuerey] = useState("");

@@ -44,15 +44,15 @@ export default function NavBar() {
   return (
     <nav className="sticky top-0 z-50 bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
       <div className="flex">
-        <span className="flex-1 flex justify-center mr-auto">
+        <span className="flex justify-center flex-1 mr-auto">
           <Link href="/" className="flex items-center cursor-pointer">
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white cursor-pointer">
+            <span className="self-center text-xl font-semibold cursor-pointer whitespace-nowrap dark:text-white">
               Movies
             </span>
           </Link>
         </span>
-        <span className="flex-1 flex justify-center">
-          <ul className="flex items-center flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+        <span className="flex justify-center flex-1">
+          <ul className="flex flex-col items-center mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
             {pages.map(page => {
               return (
                 <li
@@ -72,7 +72,7 @@ export default function NavBar() {
             })}
           </ul>
         </span>
-        <span className="flex-1 flex justify-center ml-auto">
+        <span className="flex justify-center flex-1 ml-auto">
           <SearchBar />
           <ToggleThemeButton className="px-2" />
         </span>
